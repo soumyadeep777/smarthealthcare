@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Healthcare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #8d3699;
+            color: #ded6d6;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        #appointmentForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            padding: 0.5rem;
+            background-color: #2b86c7;
+            color: #0a0202;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ce2b2b;
+        }
+
+        #confirmation {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Healthcare</h1>
+    </header>
+    <main>
+        <section id="appointment">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="confirmation"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Smart Healthcare</p>
+    </footer>
+    <script>
+        const appointmentForm = document.getElementById('appointmentForm');
+        const confirmation = document.getElementById('confirmation');
+
+        appointmentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('date').value;
+            confirmation.textContent = `Appointment booked for ${name} on ${date}. We will send a confirmation email to ${email}.`;
+        });
+    </script>
+    
+</body>
+</html>
